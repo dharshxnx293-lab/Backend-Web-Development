@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 module.exports = function requireAuth(req, res, next) {
   const authHeader = req.headers.authorization ?? '';
 
-  const match = /^Bearer ([^\\s]+)$/i.exec(authHeader);
+  const match = /^Bearer ([^\s]+)$/i.exec(authHeader);
   const token = match ? match[1] : null;
 
   if (!token) {

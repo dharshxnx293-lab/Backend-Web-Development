@@ -34,7 +34,7 @@ function requireNonEmptyString(value) {
 }
 
 function validEmail(email) {
-  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 async function register(input = {}) {

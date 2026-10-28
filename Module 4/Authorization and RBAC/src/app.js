@@ -40,7 +40,10 @@ app.use((error, req, res, next) => {
   });
 });
 
-const port = Number(process.env.PORT || 3000);
-app.listen(port, () => console.log(`RBAC starter listening on ${port}`));
+// Avoid opening a listening socket when the app is imported by tests.
+if (require.main === module) {
+  const port = Number(process.env.PORT || 3000);
+  app.listen(port, () => console.log(`RBAC starter listening on ${port}`));
+}
 
 module.exports = app;
